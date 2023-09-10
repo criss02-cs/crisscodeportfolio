@@ -7,23 +7,6 @@ import { fadeIn } from "@/variants";
 import { RxDesktop, RxMobile } from "react-icons/rx";
 import { CgWebsite } from 'react-icons/cg';
 
-export const serviceData = [
-    {
-        icon: <RxDesktop />,
-        title: 'Desktop Development',
-        description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.' 
-    },
-    {
-        icon: <CgWebsite />,
-        title: 'Web Development',
-        description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.' 
-    },
-    {
-        icon: <RxMobile />,
-        title: 'Mobile Development',
-        description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.' 
-    },
-]
 
 const Services = () => {
     return (
