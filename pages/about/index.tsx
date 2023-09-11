@@ -6,6 +6,9 @@ import {
     FaReact,
     FaWordpress,
     FaFigma,
+    FaWpforms,
+    FaJava,
+    FaAndroid,
 } from "react-icons/fa";
 
 import {
@@ -13,6 +16,16 @@ import {
     SiFramer,
     SiAdobexd,
     SiAdobephotoshop,
+    SiDotnet,
+    SiCsharp,
+    SiBlazor,
+    SiNestjs,
+    SiAngular,
+    SiXamarin,
+    SiNativescript,
+    SiIos,
+    SiMacos,
+    SiTypescript,
 } from "react-icons/si";
 
 
@@ -29,14 +42,31 @@ const aboutData = [
                     <FaJs />,
                     <FaReact />,
                     <SiNextdotjs />,
-                    <SiFramer />,
-                    <FaWordpress />,
+                    <SiBlazor />,
+                    <SiNestjs />,
+                    <SiAngular />,
+                    <SiTypescript />
                 ],
             },
             {
-                title: 'UI/UX Design',
-                icons: [<FaFigma />, <SiAdobexd />, <SiAdobephotoshop />],
+                title: 'Desktop Development',
+                icons: [
+                    <SiCsharp />,
+                    <FaJava />,
+                    <SiMacos />
+                ]
             },
+            {
+                title: 'Mobile Development',
+                icons: [
+                    <SiXamarin />,
+                    <FaReact />,
+                    <SiNativescript />,
+                    <FaAndroid />,
+                    <SiIos />,
+                    <SiTypescript />
+                ]
+            }
         ],
     },
     {
@@ -94,6 +124,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { fadeIn } from "@/variants";
 import CountUp from 'react-countup';
+import Skills from "@/components/Skills";
 
 const About = () => {
     const [index, setIndex] = useState(0);
@@ -210,7 +241,7 @@ const About = () => {
                                         <div className="flex gap-x-4">
                                             {(item as { title: string, icons?: JSX.Element[] }).icons?.map((icon, itemIndex) => {
                                                 return (
-                                                    <div className="text-2xl text-white">{icon}</div>
+                                                    <div className="text-2xl text-white" key={itemIndex}>{icon}</div>
                                                 )
                                             })}
                                         </div>
@@ -218,6 +249,14 @@ const About = () => {
                                 )
                             })
                         }
+                    </div>
+                    <div className={`h-[400px] flex sm:flex-row items-center justify-between ${index === 0 ? 'visible' : 'hidden'} `}>
+                        <div className="ml-20">
+                            <Skills />
+                        </div>
+                        <div className="mr-20">
+                            <Skills />
+                        </div>
                     </div>
                 </motion.div>
             </div>

@@ -18,6 +18,48 @@
   color: #f13024;
 }
 
+@keyframes bounce-horizontal {
+  0%, 100% {
+      transform: translateX(-25%);
+      animation-timing-function: cubic-bezier(0.8,0,1,1);
+  }
+  50% {
+      transform: none;
+      animation-timing-function: cubic-bezier(0,0,0.2,1);
+  }
+}
+@keyframes bounce-horizontal-inverse {
+  0%, 100% {
+      transform: translateX(25%);
+      animation-timing-function: cubic-bezier(0.8,0,1,1);
+  }
+  50% {
+      transform: none;
+      animation-timing-function: cubic-bezier(0,0,0.2,1);
+  }
+}
+@keyframes bounce-inverse {
+  0%, 100% {
+      transform: translateY(25%);
+      animation-timing-function: cubic-bezier(0.8,0,1,1);
+  }
+  50% {
+      transform: none;
+      animation-timing-function: cubic-bezier(0,0,0.2,1);
+  }
+}
+.animate-bounce-horizontal {
+  animation: bounce-horizontal 1s infinite;
+}
+
+.animate-bounce-horizontal-inverse {
+  animation: bounce-horizontal-inverse 1s infinite;
+}
+
+.animate-bounce-inverse {
+  animation: bounce-inverse 1s infinite;
+}
+
 @layer base {
   body {
     @apply bg-secondary overflow-hidden leading-relaxed;
