@@ -10,7 +10,7 @@ import { BsArrowRight } from 'react-icons/bs';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
-import 'swiper/css/free-mode';
+
 
 // data
 const workSlides = {
@@ -62,10 +62,9 @@ const WorkSlider = () => {
     return (
         <Swiper
             spaceBetween={10}
-            freeMode={true}
             pagination={{ clickable: true }}
             modules={[Pagination]}
-            className="h-[280px] sm:h-[480px]"
+            className="h-[400px]"
         >
             {workSlides.slides.map((slide, index) => {
                 return (
