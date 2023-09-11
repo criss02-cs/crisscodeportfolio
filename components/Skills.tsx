@@ -64,7 +64,7 @@ const Skills = () => {
                 data.map((item, index) => {
                     return (
                         <div className="absolute w-[2px] bg-white origin-[top_center] overflow-hidden" id={`line-${index}`}
-                            ref={linesRefs[index]}></div>
+                            ref={linesRefs[index]} key={index}></div>
                     )
                 })
             }
