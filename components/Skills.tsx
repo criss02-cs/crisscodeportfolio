@@ -107,7 +107,7 @@ const Skills = () => {
                                         </div>
                                         {/* triangle */}
                                         <div className={`border-solid border-${index === 1 ? 'r' : 'l'}-white border-${index === 1 ? 'r' : 'l'}-8
-                                        border-y-transparent border-y-[6px] border-${index === 1 ? 'l' : 'r'}-0 absolute -${index === 1 ? 'left' : 'right'}-2`}></div>
+                                            border-y-transparent border-y-[6px] border-${index === 1 ? 'l' : 'r'}-0 absolute -${index === 1 ? 'left' : 'right'}-2`}></div>
                                     </div>
                                 </div>
                             </div>
@@ -115,7 +115,7 @@ const Skills = () => {
                     )
                 })
             }
-            
+
         </div>
     )
 };
