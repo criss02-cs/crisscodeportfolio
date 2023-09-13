@@ -68,6 +68,7 @@ const Skills = () => {
                     )
                 })
             }
+            <Image src={'/net.png'} height={50} width={50} alt="" className="border-2 border-solid border-black rounded-full z-[1]" />
             {
                 data.map((item, index) => {
                     let translate = '';
@@ -93,15 +94,28 @@ const Skills = () => {
                     return (
                         <div key={index} className={`w-[50px] h-[50px] ${translate ?? ''} absolute`}>
                             <div className={`w-[50px] h-[50px] text-white text-[18px] rounded-[50%]
-                            flex justify-center items-center origin-[50%_50%] ${animation ?? ''} duration-[500ms] bg-white`} id={`node-${index}`}
+                            flex justify-center items-center origin-[50%_50%] ${animation ?? ''} duration-[500ms] bg-white
+                                relative group`} id={`node-${index}`}
                                 ref={nodeRefs[index]}>
-                                <Image src={item.image} width={45} height={45} alt=""  />
+                                <Image src={item.image} width={45} height={45} alt="" />
+                                {/* tooltip */}
+                                <div className={`absolute pr-14 ${index === 1 ? 'left-14' : 'right-0'} hidden xl:group-hover:flex z-[10]`}>
+                                    <div className="bg-white relative flex text-primary items-center p-[6px] rounded-[3px]
+                                    leading-none font-semibold capitalize">
+                                        <div className="text-[12px]">
+                                            {item.title}
+                                        </div>
+                                        {/* triangle */}
+                                        <div className={`border-solid border-${index === 1 ? 'r' : 'l'}-white border-${index === 1 ? 'r' : 'l'}-8
+                                        border-y-transparent border-y-[6px] border-${index === 1 ? 'l' : 'r'}-0 absolute -${index === 1 ? 'left' : 'right'}-2`}></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     )
                 })
             }
-            <Image src={'/net.png'} height={50} width={50} alt="" className="border-2 border-solid border-black rounded-full z-[1]" />
+            
         </div>
     )
 };

@@ -28,6 +28,7 @@ import {
     SiIos,
     SiMacos,
     SiTypescript,
+    SiTailwindcss,
 } from "react-icons/si";
 
 import Maui from '/maui-logo.svg';
@@ -43,14 +44,27 @@ const aboutData = [
                 icons: [
                     <FaHtml5 key={1} />,
                     <FaCss3 key={2}/>,
-                    <FaJs key={3}/>,
-                    <FaReact key={4}/>,
-                    <SiNextdotjs key={5}/>,
-                    <SiBlazor key={6}/>,
-                    <SiNestjs key={7}/>,
-                    <SiAngular key={8}/>,
-                    <SiTypescript key={9}/>
+                    <SiTailwindcss key={3} />,
+                    <FaJs key={4}/>,
+                    <FaReact key={5}/>,
+                    <SiNextdotjs key={6}/>,
+                    <SiBlazor key={7}/>,
+                    <SiNestjs key={8}/>,
+                    <SiAngular key={9}/>,
+                    <SiTypescript key={10}/>
                 ],
+                overlays: [
+                    'HTML5',
+                    'CSS3',
+                    'Tailwind CSS',
+                    'Javascript',
+                    'React',
+                    'NextJS',
+                    'Blazor',
+                    'NestJS',
+                    'AngularJS',
+                    'Typescript'
+                ]
             },
             {
                 title: 'Desktop Development',
@@ -58,6 +72,11 @@ const aboutData = [
                     <SiCsharp key={1} />,
                     <FaJava key={2}/>,
                     <SiMacos key={3}/>
+                ],
+                overlays: [
+                    'C#',
+                    'Java',
+                    'Mac OS',
                 ]
             },
             {
@@ -65,42 +84,49 @@ const aboutData = [
                 icons: [
                     <SiXamarin key={1}/>,
                     <FaReact key={2}/>,
-                    <SiNativescript key={3} />,
+                    <SiNativescript key={3}/>,
                     <FaAndroid key={4}/>,
                     <SiIos key={5}/>,
                     <SiTypescript key={6}/>,
-                    <Image key={7} alt="" src={'/maui-logo.svg'} width={24} height={24} />
+                ],
+                overlays: [
+                    'Xamarin',
+                    'React Native',
+                    'NativeScript',
+                    'Android',
+                    'Ios',
+                    'Typescript'
                 ]
             }
         ],
     },
-    {
-        title: 'awards',
-        info: [
-            {
-                title: 'Webby Awards - Honoree',
-                stage: '2011 - 2012',
-            },
-            {
-                title: 'Adobe Design Achievement Awards - Finalist',
-                stage: '2009 - 2010',
-            },
-        ],
-    },
+    // {
+    //     title: 'awards',
+    //     info: [
+    //         {
+    //             title: 'Webby Awards - Honoree',
+    //             stage: '2011 - 2012',
+    //         },
+    //         {
+    //             title: 'Adobe Design Achievement Awards - Finalist',
+    //             stage: '2009 - 2010',
+    //         },
+    //     ],
+    // },
     {
         title: 'experience',
         info: [
             {
-                title: 'UX/UI Designer - XYZ Company',
-                stage: '2012 - 2023',
+                title: 'Backend Developer - Einitia Internet Solutions S.L.U',
+                stage: '2021',
             },
             {
-                title: 'Web Developer - ABC Agency',
-                stage: '2010 - 2012',
+                title: 'Web Developer - GBsoftware S.p.A.',
+                stage: '2022 - present',
             },
             {
-                title: 'Intern - DEF Corporation',
-                stage: '2008 - 2010',
+                title: 'Mobile Developer - GBsoftware S.p.A.',
+                stage: '2022 - present',
             },
         ],
     },
@@ -108,16 +134,28 @@ const aboutData = [
         title: 'credentials',
         info: [
             {
-                title: 'Web Development - ABC University, LA, CA',
-                stage: '2011',
+                title: 'MongoDB for .NET Developers - MongoDB University',
+                stage: '2022',
             },
             {
-                title: 'Computer Science Diploma - AV Technical Institute',
-                stage: '2009',
+                title: 'Diploma Perito Informatico - I.T. Franchetti Salviani',
+                stage: '2021',
             },
             {
-                title: 'Certified Graphic Designer - ABC Institute, Los Angeles, CA',
-                stage: '2006',
+                title: 'Laurea in informatica - Università di Camerino',
+                stage: 'In corso',
+            },
+            {
+                title: 'English certification level B1 - Cambridge Assessment',
+                stage: '2022',
+            },
+            {
+                title: 'C# 8 Programming: da Principiante a Esperto - Udemy',
+                stage: '2020',
+            },
+            {
+                title: 'Introduction to Cybersecurity - Cisco Networking Academy',
+                stage: '2021',
             },
         ],
     },
@@ -160,9 +198,10 @@ const About = () => {
                         initial="hidden"
                         animate="show"
                         exit="hidden">
-                        10 years ago, I began freelancing as a developer. Since then, I&apos;ve done
-                        remote work for agencies, consulted for startups, and collaborated on digital products
-                        for business and consumer use
+                        Fin da piccolo sono stato appassionato di informatica e tutto il mondo che la riguarda.
+                        All&apos;età di 14 ho iniziato il mio percorso nel mondo della programmazione e da allora ho avuto modo
+                        di apprendere sempre più cose e conoscere nuove persone. Tante delle mie attività sono legate alla programmazione,
+                        attalmente sviluppatore web e mobile alla GBsoftware S.p.A.
                     </motion.p>
                     {/* counters */}
                     <motion.div className="hidden md:flex md:max-w-xl xl:max-w-none mx-auto xl:mx-0 mb-8"
@@ -244,9 +283,24 @@ const About = () => {
                                         <div>{(item as { title: string, stage: string }).stage}</div>
                                         {/* icons */}
                                         <div className="flex gap-x-4">
-                                            {(item as { title: string, icons?: JSX.Element[] }).icons?.map((icon, itemIndex) => {
+                                            {(item as { title: string, icons?: JSX.Element[], overlays: string[] }).icons?.map((icon, itemIndex) => {
+                                                const tooltip = (item as { title: string, icons?: JSX.Element[], overlays: string[] }).overlays[itemIndex];
                                                 return (
-                                                    <div className="text-2xl text-white" key={itemIndex}>{icon}</div>
+                                                    <div className="relative flex group" key={itemIndex}>
+                                                        <div className="text-2xl text-white" >{icon}</div>
+                                                        {/* tooltip */}
+                                                        <div className="absolute pr-14 right-0 hidden xl:group-hover:flex">
+                                                            <div className="bg-white relative flex text-primary items-center p-[6px] rounded-[3px]
+                                                                    leading-none font-semibold capitalize">
+                                                                <div className="text-[12px]">
+                                                                    {tooltip}
+                                                                </div>
+                                                                {/* triangle */}
+                                                                <div className="border-solid border-l-white border-l-8
+                                                                    border-y-transparent border-y-[6px] border-r-0 absolute -right-2"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 )
                                             })}
                                         </div>
@@ -255,7 +309,7 @@ const About = () => {
                             })
                         }
                     </div>
-                    <div className={`h-[400px] flex sm:flex-row items-center justify-between ${index === 0 ? 'visible' : 'hidden'} `}>
+                    <div className={`h-[400px] hidden ${index === 0 ? 'md:flex' : ''} sm:flex-row items-center justify-between `}>
                         <div className="ml-20">
                             <Skills />
                         </div>
