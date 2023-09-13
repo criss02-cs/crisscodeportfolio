@@ -11,6 +11,8 @@ import {
     FaAndroid,
 } from "react-icons/fa";
 
+import Image from "next/image";
+
 import {
     SiNextdotjs,
     SiFramer,
@@ -28,6 +30,8 @@ import {
     SiTypescript,
 } from "react-icons/si";
 
+import Maui from '/maui-logo.svg';
+
 
 //  data
 const aboutData = [
@@ -37,34 +41,35 @@ const aboutData = [
             {
                 title: 'Web Development',
                 icons: [
-                    <FaHtml5 />,
-                    <FaCss3 />,
-                    <FaJs />,
-                    <FaReact />,
-                    <SiNextdotjs />,
-                    <SiBlazor />,
-                    <SiNestjs />,
-                    <SiAngular />,
-                    <SiTypescript />
+                    <FaHtml5 key={1} />,
+                    <FaCss3 key={2}/>,
+                    <FaJs key={3}/>,
+                    <FaReact key={4}/>,
+                    <SiNextdotjs key={5}/>,
+                    <SiBlazor key={6}/>,
+                    <SiNestjs key={7}/>,
+                    <SiAngular key={8}/>,
+                    <SiTypescript key={9}/>
                 ],
             },
             {
                 title: 'Desktop Development',
                 icons: [
-                    <SiCsharp />,
-                    <FaJava />,
-                    <SiMacos />
+                    <SiCsharp key={1} />,
+                    <FaJava key={2}/>,
+                    <SiMacos key={3}/>
                 ]
             },
             {
                 title: 'Mobile Development',
                 icons: [
-                    <SiXamarin />,
-                    <FaReact />,
-                    <SiNativescript />,
-                    <FaAndroid />,
-                    <SiIos />,
-                    <SiTypescript />
+                    <SiXamarin key={1}/>,
+                    <FaReact key={2}/>,
+                    <SiNativescript key={3} />,
+                    <FaAndroid key={4}/>,
+                    <SiIos key={5}/>,
+                    <SiTypescript key={6}/>,
+                    <Image key={7} alt="" src={'/maui-logo.svg'} width={24} height={24} />
                 ]
             }
         ],
@@ -155,7 +160,7 @@ const About = () => {
                         initial="hidden"
                         animate="show"
                         exit="hidden">
-                        10 years ago, I began freelancing as a developer. Since then, I've done
+                        10 years ago, I began freelancing as a developer. Since then, I&apos;ve done
                         remote work for agencies, consulted for startups, and collaborated on digital products
                         for business and consumer use
                     </motion.p>
