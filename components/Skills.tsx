@@ -16,7 +16,7 @@ const data: { title: string, image: string }[] = [
     {
         title: 'Blazor',
         image: '/blazor.png'
-    }
+    },
 ]
 
 
@@ -79,15 +79,22 @@ const Skills = () => {
                             animation = 'animate-[bounce_3s_ease-in-out_infinite]';
                             break;
                         case 1:
-                            translate = 'translate-x-[150%] translate-y-[0%]';
+                            translate = 'translate-x-[150%] -translate-y-[0%]';
+                            // translate = 'translate-x-[142%] -translate-y-[46%]';
                             animation = 'animate-[bounce-horizontal-inverse_3s_ease-in-out_infinite]';
                             break;
                         case 2:
                             translate = 'translate-x-[0%] translate-y-[150%]';
+                            // translate = 'translate-x-[88%] translate-y-[121%]';
                             animation = 'animate-[bounce-inverse_3s_ease-in-out_infinite]';
                             break;
                         case 3:
                             translate = '-translate-x-[150%] translate-y-[0%]';
+                            // translate = '-translate-x-[88%] translate-y-[121%]';
+                            animation = 'animate-[bounce-horizontal_3s_ease-in-out_infinite]';
+                            break;
+                        case 4:
+                            // translate = '-translate-x-[142%] -translate-y-[46%]';
                             animation = 'animate-[bounce-horizontal_3s_ease-in-out_infinite]';
                             break;
                     }
