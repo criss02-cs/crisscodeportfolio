@@ -43,15 +43,15 @@ const aboutData = [
                 title: 'Web Development',
                 icons: [
                     <FaHtml5 key={1} />,
-                    <FaCss3 key={2}/>,
+                    <FaCss3 key={2} />,
                     <SiTailwindcss key={3} />,
-                    <FaJs key={4}/>,
-                    <FaReact key={5}/>,
-                    <SiNextdotjs key={6}/>,
-                    <SiBlazor key={7}/>,
-                    <SiNestjs key={8}/>,
-                    <SiAngular key={9}/>,
-                    <SiTypescript key={10}/>
+                    <FaJs key={4} />,
+                    <FaReact key={5} />,
+                    <SiNextdotjs key={6} />,
+                    <SiBlazor key={7} />,
+                    <SiNestjs key={8} />,
+                    <SiAngular key={9} />,
+                    <SiTypescript key={10} />
                 ],
                 overlays: [
                     'HTML5',
@@ -70,8 +70,8 @@ const aboutData = [
                 title: 'Desktop Development',
                 icons: [
                     <SiCsharp key={1} />,
-                    <FaJava key={2}/>,
-                    <SiMacos key={3}/>
+                    <FaJava key={2} />,
+                    <SiMacos key={3} />
                 ],
                 overlays: [
                     'C#',
@@ -82,12 +82,12 @@ const aboutData = [
             {
                 title: 'Mobile Development',
                 icons: [
-                    <SiXamarin key={1}/>,
-                    <FaReact key={2}/>,
-                    <SiNativescript key={3}/>,
-                    <FaAndroid key={4}/>,
-                    <SiIos key={5}/>,
-                    <SiTypescript key={6}/>,
+                    <SiXamarin key={1} />,
+                    <FaReact key={2} />,
+                    <SiNativescript key={3} />,
+                    <FaAndroid key={4} />,
+                    <SiIos key={5} />,
+                    <SiTypescript key={6} />,
                 ],
                 overlays: [
                     'Xamarin',
@@ -160,6 +160,48 @@ const aboutData = [
         ],
     },
 ];
+
+const skillNet: { title: string, image: string }[] = [
+    {
+        title: 'Net Core',
+        image: '/net_core.png'
+    },
+    {
+        title: 'Net Framework',
+        image: '/net_framework.png'
+    },
+    {
+        title: 'Maui',
+        image: '/dotnet_bot.svg',
+    },
+    {
+        title: 'Blazor',
+        image: '/blazor.png'
+    },
+];
+
+const skillJs: { title: string, image: string }[] = [
+    {
+        title: 'Angular',
+        image: '/angular.svg'
+    },
+    {
+        title: 'React',
+        image: '/react.png'
+    },
+    {
+        title: 'NestJS',
+        image: '/nestjs.svg',
+    },
+    {
+        title: 'NodeJS',
+        image: '/nodejs.png',
+    },
+    {
+        title: 'Typescript',
+        image: '/typescript.png',
+    },
+]
 
 import Avatar from "@/components/Avatar";
 import Circles from "@/components/Circles";
@@ -311,10 +353,10 @@ const About = () => {
                     </div>
                     <div className={`h-[400px] hidden ${index === 0 ? 'md:flex' : ''} sm:flex-row items-center justify-between `}>
                         <div className="ml-20">
-                            <Skills />
+                            <Skills skillType='net' data={skillNet} />
                         </div>
                         <div className="mr-20">
-                            <Skills />
+                            <Skills skillType="js" data={skillJs} />
                         </div>
                     </div>
                 </motion.div>

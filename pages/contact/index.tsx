@@ -1,8 +1,36 @@
 import { fadeIn } from "@/variants";
 import { motion } from "framer-motion";
+import { MouseEventHandler, useState } from "react";
 import { BsArrowRight } from "react-icons/bs";
 
 const Contact = () => {
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [subject, setSubject] = useState('');
+    const [message, setMessage] = useState('');
+
+    const handleSubmit = (e: any) => {
+        e.preventDefault();
+        let data = {
+            name,
+            email,
+            subject,
+            message
+        }
+        fetch('/api/contact', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        }).then(res => {
+            if(res.status === 200) {
+                console.log('Email sended');
+            }
+        })
+    }
+
     return (
         <div className="h-full bg-primary/30">
             <div className="container mx-auto py-32 text-center xl:text-left flex items-center
@@ -23,18 +51,18 @@ const Contact = () => {
                         variants={fadeIn('up', 0.4)}
                         initial="hidden"
                         animate="show"
-                        exit="hidden" 
+                        exit="hidden"
                         className="flex-1 flex flex-col gap-6 w-full mx-auto">
                         {/* input group */}
                         <div className="flex gap-x-6 w-full">
-                            <input type="text" placeholder="name" className="input" />
-                            <input type="text" placeholder="email" className="input" />
+                            <input type="text" placeholder="name" className="input" onChange={e => setName(e.target.value)} />
+                            <input type="text" placeholder="email" className="input" onChange={e => setEmail(e.target.value)}/>
                         </div>
-                        <input type="text" placeholder="subject" className="input" />
-                        <textarea placeholder="message" className="textarea"></textarea>
+                        <input type="text" placeholder="subject" className="input" onChange={e => setSubject(e.target.value)} />
+                        <textarea placeholder="message" className="textarea" onChange={e => setMessage(e.target.value)}></textarea>
                         <button className="btn rounded-full border border-white/50 max-w-[170px]
                             px-8 transition-all duration-300 flex items-center justify-center
-                            overflow-hidden hover:border-accent group">
+                            overflow-hidden hover:border-accent group" onClick={handleSubmit}>
                             <span className="group-hover:-translate-y-[120%] group-hover:opacity-0
                                 transition-all duration-500">Let's talk</span>
                             <BsArrowRight className="-translate-y-[120%] opacity-0 group-hover:flex group-hover:-translate-y-0

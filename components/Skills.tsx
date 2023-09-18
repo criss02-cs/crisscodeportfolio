@@ -1,26 +1,12 @@
 import Image from "next/image";
-import { useEffect, useRef } from "react";
-const data: { title: string, image: string }[] = [
-    {
-        title: 'Net Core',
-        image: '/net_core.png'
-    },
-    {
-        title: 'Net Framework',
-        image: '/net_framework.png'
-    },
-    {
-        title: 'Maui',
-        image: '/dotnet_bot.svg',
-    },
-    {
-        title: 'Blazor',
-        image: '/blazor.png'
-    },
-]
+import { FC, useEffect, useRef } from "react";
 
+type Props = {
+    skillType: 'net' | 'js';
+    data: { title: string, image: string }[];
+}
 
-const Skills = () => {
+const Skills: FC<Props> = ({ skillType, data}) => {
     const centralNodeRef = useRef<HTMLDivElement>(null);
     const nodeRefs = data.map(() => useRef<HTMLDivElement>(null));
     const linesRefs = data.map(() => useRef<HTMLDivElement>(null));
@@ -68,7 +54,7 @@ const Skills = () => {
                     )
                 })
             }
-            <Image src={'/net.png'} height={50} width={50} alt="" className="border-2 border-solid border-black rounded-full z-[1]" />
+            <Image src={`/${skillType}.png`} height={50} width={50} alt="" className="border-2 border-solid border-black rounded-full z-[1]" />
             {
                 data.map((item, index) => {
                     let translate = '';
@@ -76,32 +62,48 @@ const Skills = () => {
                     switch (index) {
                         case 0:
                             translate = 'translate-x-[0%] -translate-y-[150%]';
-                            animation = 'animate-[bounce_3s_ease-in-out_infinite]';
+                            animation = `animate-[bounce_3s_ease-in-out_infinite]`;
+                            if(skillType === 'js') {
+                                animation = 'animate-[bounce-25_3s_ease-in-out_infinite]';
+                            }
                             break;
                         case 1:
-                            translate = 'translate-x-[150%] -translate-y-[0%]';
-                            // translate = 'translate-x-[142%] -translate-y-[46%]';
-                            animation = 'animate-[bounce-horizontal-inverse_3s_ease-in-out_infinite]';
+                            if(skillType === 'js') {
+                                translate = 'translate-x-[142%] -translate-y-[46%]';
+                                animation = 'animate-[bounce-diagonal-first-quadrant_3s_ease-in-out_infinite]';
+                            } else {
+                                translate = 'translate-x-[150%] -translate-y-[0%]';
+                                animation = 'animate-[bounce-horizontal-inverse_3s_ease-in-out_infinite]';
+                            }
                             break;
                         case 2:
-                            translate = 'translate-x-[0%] translate-y-[150%]';
-                            // translate = 'translate-x-[88%] translate-y-[121%]';
-                            animation = 'animate-[bounce-inverse_3s_ease-in-out_infinite]';
+                            if(skillType === 'js') {
+                                translate = 'translate-x-[88%] translate-y-[121%]';
+                                animation = 'animate-[bounce-diagonal-second-quadrant_3s_ease-in-out_infinite]';
+                            } else {
+                                translate = 'translate-x-[0%] translate-y-[150%]';
+                                animation = 'animate-[bounce-inverse_3s_ease-in-out_infinite]';
+                            }
                             break;
                         case 3:
-                            translate = '-translate-x-[150%] translate-y-[0%]';
-                            // translate = '-translate-x-[88%] translate-y-[121%]';
-                            animation = 'animate-[bounce-horizontal_3s_ease-in-out_infinite]';
+                            if(skillType === 'js') {
+                                translate = '-translate-x-[88%] translate-y-[121%]';
+                                animation = 'animate-[bounce-diagonal-third-quadrant_3s_ease-in-out_infinite]'
+                            } else {
+                                translate = '-translate-x-[150%] translate-y-[0%]';
+                                animation = 'animate-[bounce-horizontal_3s_ease-in-out_infinite]';
+                            }
                             break;
                         case 4:
-                            // translate = '-translate-x-[142%] -translate-y-[46%]';
-                            animation = 'animate-[bounce-horizontal_3s_ease-in-out_infinite]';
+                            translate = '-translate-x-[142%] -translate-y-[46%]';
+                            animation = 'animate-[bounce-diagonal_3s_ease-in-out_infinite]';
                             break;
                     }
                     return (
                         <div key={index} className={`w-[50px] h-[50px] ${translate ?? ''} absolute`}>
                             <div className={`w-[50px] h-[50px] text-white text-[18px] rounded-[50%]
-                            flex justify-center items-center origin-[50%_50%] ${animation ?? ''} duration-[500ms] bg-white
+                            flex justify-center items-center origin-[50%_50%] ${animation ?? ''} duration-[500ms] 
+                                ${skillType === 'js' && (index === 0 || index === 4) ? '' : 'bg-white'}
                                 relative group`} id={`node-${index}`}
                                 ref={nodeRefs[index]}>
                                 <Image src={item.image} width={45} height={45} alt="" />
