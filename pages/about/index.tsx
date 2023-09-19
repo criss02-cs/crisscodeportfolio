@@ -100,25 +100,16 @@ const aboutData = [
             }
         ],
     },
-    // {
-    //     title: 'awards',
-    //     info: [
-    //         {
-    //             title: 'Webby Awards - Honoree',
-    //             stage: '2011 - 2012',
-    //         },
-    //         {
-    //             title: 'Adobe Design Achievement Awards - Finalist',
-    //             stage: '2009 - 2010',
-    //         },
-    //     ],
-    // },
     {
         title: 'experience',
         info: [
             {
                 title: 'Backend Developer - Einitia Internet Solutions S.L.U',
                 stage: '2021',
+            },
+            {
+                title: 'Backend Developer - GBsoftware S.p.A.',
+                stage: '2022 - present'  
             },
             {
                 title: 'Web Developer - GBsoftware S.p.A.',
@@ -157,6 +148,10 @@ const aboutData = [
                 title: 'Introduction to Cybersecurity - Cisco Networking Academy',
                 stage: '2021',
             },
+            {
+                title: 'Foundational C# with Microsoft - freeCodeCamp',
+                stage: '2023'
+            }
         ],
     },
 ];
