@@ -8,7 +8,9 @@ type Props = {
 
 const Skills: FC<Props> = ({ skillType, data}) => {
     const centralNodeRef = useRef<HTMLDivElement>(null);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     const nodeRefs = data.map(() => useRef<HTMLDivElement>(null));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     const linesRefs = data.map(() => useRef<HTMLDivElement>(null));
     const minAngle = (lenght: number) => 360 / lenght;
 
