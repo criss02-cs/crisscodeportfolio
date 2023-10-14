@@ -32,7 +32,7 @@ const Home: React.FC = () => {
                     <motion.p variants={fadeIn('down', 0.3)} initial='hidden' animate="show" exit='hidden'
                         className="max-w-sm xl:max-w-xl mx-auto xl:mx-0 mb-10 xl:mb-16">
                         Il mio approccio allo sviluppo software è una combinazione di logica e passione. 
-                        Sono un narratore digitale, creando storie interattive con linee di codice che catturano l'immaginazione degli utenti e risolvono problemi complessi.
+                        Sono un narratore digitale, creando storie interattive con linee di codice che catturano l&apos;immaginazione degli utenti e risolvono problemi complessi.
                     </motion.p>
                     {/* btn */}
                     <div className="flex justify-center xl:hidden">
