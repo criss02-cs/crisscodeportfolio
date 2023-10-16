@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { FC, useEffect, useRef } from "react";
+import { FC, MutableRefObject, useEffect, useRef } from "react";
 
 type Props = {
     skillType: 'net' | 'js';
@@ -8,8 +8,8 @@ type Props = {
 
 const Skills: FC<Props> = ({ skillType, data}) => {
     const centralNodeRef = useRef<HTMLDivElement>(null);
-    const nodeRefs = data.map(() => useRef<HTMLDivElement>(null));
-    const linesRefs = data.map(() => useRef<HTMLDivElement>(null));
+    const nodeRefs: MutableRefObject<HTMLDivElement>[] = [];
+    const linesRefs: MutableRefObject<HTMLDivElement>[] = [];
     const minAngle = (lenght: number) => 360 / lenght;
 
     const getAngle = (index: number, minAngle = 45) => {
