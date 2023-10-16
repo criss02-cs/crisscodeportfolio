@@ -209,7 +209,7 @@ import Skills from "@/components/Skills";
 const About = () => {
     const [index, setIndex] = useState(0);
     return (
-        <div className="h-full bg-primary/30 py-32 text-center xl:text-left">
+        <div className="h-500 xl:h-full bg-primary/30 py-32 text-center xl:text-left scroll-auto">
             <Circles />
             {/* avatar img */}
             <motion.div
@@ -220,7 +220,7 @@ const About = () => {
                 className="hidden xl:flex absolute bottom-0 -left-[370px]">
                 <Avatar />
             </motion.div>
-            <div className="container mx-auto h-full flex flex-col items-center xl:flex-row gap-x-6">
+            <div className="container mx-auto h-full overflow-y-auto flex flex-col flex-grow items-center xl:flex-row gap-x-6">
                 {/* text */}
                 <div className="flex-1 flex flex-col justify-center">
                     <motion.h2 className="h2"
@@ -236,7 +236,7 @@ const About = () => {
                         animate="show"
                         exit="hidden">
                         Fin da piccolo sono stato appassionato di informatica e tutto il mondo che la riguarda.
-                        All&apos;età di 14 ho iniziato il mio percorso nel mondo della programmazione e da allora ho avuto modo
+                        All&apos;età di 14 anni ho iniziato il mio percorso nel mondo della programmazione e da allora ho avuto modo
                         di apprendere sempre più cose e conoscere nuove persone. Tante delle mie attività sono legate alla programmazione,
                         attalmente sviluppatore web e mobile alla GBsoftware S.p.A.
                     </motion.p>
