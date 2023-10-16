@@ -35,9 +35,9 @@ const Home: React.FC = () => {
                         Sono un narratore digitale, creando storie interattive con linee di codice che catturano l'immaginazione degli utenti e risolvono problemi complessi.
                     </motion.p>
                     {/* btn */}
-                    <div className="flex justify-center xl:hidden">
+                    {/* <div className="flex justify-center xl:hidden">
                         <ProjectsBtn />
-                    </div>
+                    </div> */}
                     <motion.div variants={fadeIn('down', 0.4)} initial='hidden' animate="show" exit='hidden'
                         className="hidden xl:flex">
                         <ProjectsBtn />
